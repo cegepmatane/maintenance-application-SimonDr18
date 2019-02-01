@@ -241,6 +241,15 @@ void Editeur::creerActions()
     editMenu->addAction(pasteAct);
     editToolBar->addAction(pasteAct);
 
+    const QIcon selectAllIcon = QIcon::fromTheme("edit-selectall", QIcon(":/images/selectall.png"));
+    QAction *selectAct = new QAction(selectAllIcon, tr("&SelectAll"), this);
+    selectAct->setShortcuts(QKeySequence::SelectAll);
+    selectAct->setStatusTip(tr("Select the entire "
+                              "selection"));
+    connect(selectAct, &QAction::triggered, champTexte, &QPlainTextEdit::selectAll);
+    editMenu->addAction(selectAct);
+    editToolBar->addAction(selectAct);
+
     menuBar()->addSeparator();
 
 #endif // !QT_NO_CLIPBOARD
