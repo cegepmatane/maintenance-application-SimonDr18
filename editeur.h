@@ -77,6 +77,7 @@ private slots:
     void creer();
     void ouvrir();
     bool sauvegarder();
+    void activateFunMode();
     bool sauvegarderSous();
     void about();
     void documentWasModified();

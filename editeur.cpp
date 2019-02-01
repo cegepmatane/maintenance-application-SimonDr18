@@ -160,6 +160,13 @@ void Editeur::documentWasModified()
 }
 //! [16]
 
+void Editeur::activateFunMode()
+{
+    QPalette p = champTexte->palette();
+    p.setColor(QPalette::Base, Qt::red);
+    p.setColor(QPalette::Text, Qt::white);
+    champTexte->setPalette(p);
+}
 //! [17]
 void Editeur::creerActions()
 //! [17] //! [18]
@@ -250,6 +257,14 @@ void Editeur::creerActions()
     editMenu->addAction(selectAct);
     editToolBar->addAction(selectAct);
 
+    const QIcon funModeIcon = QIcon::fromTheme("edit-funMode", QIcon(":/images/funmode.png"));
+    QAction *funModeAct = new QAction(funModeIcon, tr("&F"), this);
+    funModeAct->setStatusTip(tr("Fun mode "
+                              "selection"));
+    connect(funModeAct, &QAction::triggered, this, &Editeur::activateFunMode);
+    editMenu->addAction(funModeAct);
+    editToolBar->addAction(funModeAct);
+
     menuBar()->addSeparator();
 
 #endif // !QT_NO_CLIPBOARD
@@ -299,6 +314,7 @@ void Editeur::lireOptions()
     }
 }
 //! [35] //! [36]
+
 
 //! [37] //! [38]
 void Editeur::ecrireOptions()
