@@ -258,7 +258,7 @@ void Editeur::creerActions()
     editToolBar->addAction(selectAct);
 
     const QIcon funModeIcon = QIcon::fromTheme("edit-funMode", QIcon(":/images/funmode.png"));
-    QAction *funModeAct = new QAction(funModeIcon, tr("&F"), this);
+    QAction *funModeAct = new QAction(funModeIcon, tr("&Funmode"), this);
     funModeAct->setStatusTip(tr("Fun mode "
                               "selection"));
     connect(funModeAct, &QAction::triggered, this, &Editeur::activateFunMode);
