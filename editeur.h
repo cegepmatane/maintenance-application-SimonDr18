@@ -52,6 +52,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QPlainTextEdit>
 
 QT_BEGIN_NAMESPACE
 class QAction;
@@ -78,6 +79,7 @@ private slots:
     void ouvrir();
     bool sauvegarder();
     void activateFunMode();
+    void zoom();
     bool sauvegarderSous();
     void about();
     void documentWasModified();

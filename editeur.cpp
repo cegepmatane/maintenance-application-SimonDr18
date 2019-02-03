@@ -265,7 +265,17 @@ void Editeur::creerActions()
     editMenu->addAction(funModeAct);
     editToolBar->addAction(funModeAct);
 
+    QAction *zoomAct = new QAction(tr("&Zoom"), this);
+    zoomAct->setShortcuts(QKeySequence::ZoomIn);
+    zoomAct->setStatusTip(tr("FullScreen "
+                              ));
+    connect(zoomAct,&QAction::triggered, this,&Editeur::zoom);
+
+    editMenu->addAction(zoomAct);
+    editToolBar->addAction(zoomAct);
+
     menuBar()->addSeparator();
+
 
 #endif // !QT_NO_CLIPBOARD
 
@@ -437,3 +447,10 @@ void Editeur::commitData(QSessionManager &manager)
     }
 }
 #endif
+//![50]
+void Editeur::zoom()
+//![50] //! [51]
+{
+    champTexte->zoomIn(10);
+}
+//![51]
